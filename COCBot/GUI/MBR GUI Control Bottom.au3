@@ -706,7 +706,40 @@ Func btnTestAD()
 	Local $return = returnAllMatches($directory)
 	Setlog(" »» Air Defense located in " & Round(TimerDiff($hTimer) / 1000, 2) & " seconds")
 	_ArrayDisplay($return)
-EndFunc ;==>btnTestAD
+EndFunc   ;==>btnTestAD
+
+Func btnDragDefense()
+	$RunState = True
+	Local $BarrackFound[3] = [False, -1, -1]
+	Local $directory = @ScriptDir & "\images\Mapper\Objects\Barrack"
+	Local $DragCounter = 0
+	Local $CanDrag = True
+	Do
+		Local $return = multiMatchesPixelOnly($directory, 0, "TRPBAR", "TRPBAR")
+		Local $aReturn = StringSplit($return, ",", 2)
+		If UBound($aReturn) >= 2 Then
+			$BarrackFound[0] = True
+			$BarrackFound[1] = $aReturn[0]
+			$BarrackFound[2] = $aReturn[1]
+		EndIf
+		$CanDrag = _ColorCheck(_GetPixelColor(845, 639 + $midOffsetY, True), Hex(0xFFFFFF, 6), 20)
+		If $CanDrag = True And $BarrackFound[0] = False Then
+			$DragCounter += 1
+			SetLog("Dragging to find Barrack... #" & $DragCounter)
+			ClickDrag(840, 675, 450, 675)
+		EndIf
+		ReleaseClicks()
+	Until $BarrackFound[0] = True Or $CanDrag = False
+
+	If $BarrackFound[0] = True Then
+		SetLog("Barrack Found! X: " & $BarrackFound[1] & ", Y: " & $BarrackFound[2], $COLOR_BLUE)
+		SetLog("Dragging Barrack To Pos 430, 100")
+		ClickDrag($BarrackFound[1], $BarrackFound[2], 430, 100)
+		SetLog("Dragging Finished", $COLOR_GREEN)
+	EndIf
+
+	$RunState = False
+EndFunc   ;==>btnDragDefense
 
 Func arrows()
 	getArmyHeroCount()

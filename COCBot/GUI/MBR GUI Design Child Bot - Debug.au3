@@ -52,25 +52,25 @@ $grpDebug = GUICtrlCreateGroup(GetTranslated(636,34, "Debug"), $x - 20, $y - 20,
 
 Local $x = 295
 $y = 45
-	$btnTestTrain = GUICtrlCreateButton(GetTranslated(636,88, "Test Train"), $x  , $y , 140, 30)
+	$btnTestTrain = GUICtrlCreateButton(GetTranslated(636,88, "Test Train"), $x  , $y , 140, 25)
 
-	$y += 35
+	$y += 30
 
-	$btnTestDonateCC = GUICtrlCreateButton(GetTranslated(636,89, "Test Donate"), $x  , $y , 140, 30)
+	$btnTestDonateCC = GUICtrlCreateButton(GetTranslated(636,89, "Test Donate"), $x  , $y , 140, 25)
 
-	$y += 35
+	$y += 30
 
-	$btnTestAttackBar = GUICtrlCreateButton(GetTranslated(636,90, "Test Attack Bar"), $x  , $y , 140, 30)
+	$btnTestAttackBar = GUICtrlCreateButton(GetTranslated(636,90, "Test Attack Bar"), $x  , $y , 140, 25)
 
-	$y += 35
+	$y += 30
 
-	$btnTestClickDrag = GUICtrlCreateButton(GetTranslated(636,102, "Test Click Drag (scrolling)"), $x  , $y , 140, 30)
+	$btnTestClickDrag = GUICtrlCreateButton(GetTranslated(636,102, "Test Click Drag (scrolling)"), $x  , $y , 140, 25)
 
-	$y += 35
+	$y += 30
 
-	$btnTestImage = GUICtrlCreateButton(GetTranslated(636,103, "Test Image"), $x  , $y , 140, 30)
+	$btnTestImage = GUICtrlCreateButton(GetTranslated(636,103, "Test Image"), $x  , $y , 140, 25)
 
-	$y += 35
+	$y += 30
 
 	$btnEagle = GUICtrlCreateButton(GetTranslated(636,104, "Test Eagle"), $x  , $y , 140, 25)
 
@@ -90,6 +90,10 @@ $y = 45
 	$y += 30
 
 	$btnEQDeploy = GUICtrlCreateButton(GetTranslated(636,106, "EQ Deploy"), $x  , $y , 140, 25)
+
+	$y += 30
+
+	$btnDragDefense = GUICtrlCreateButton("Drag Defense", $x  , $y , 140, 25)
 
 GUICtrlCreateGroup("", -99, -99, 1, 1)
 
